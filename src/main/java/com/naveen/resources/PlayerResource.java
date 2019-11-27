@@ -21,6 +21,11 @@ public class PlayerResource {
 	@Autowired
 	private PlayerDao playerDao;
 	
+	@GetMapping("/msg/{name}")
+	public String sendGreet(@PathVariable(name)String name){
+		return "Hi "+name;
+	}
+	
 	@PostMapping(value="/players")
 	public Player savePlayer(@RequestBody Player player) {
 		return playerDao.save(player);
